@@ -9,7 +9,7 @@ function fetchProfileData($uid) {
     if (this.readyState == 4 && this.status == 200) {
       let response = JSON.parse(this.responseText);
       console.log(response);
-      navProfile.src=profile+response[0].profile;
+      navProfile.src = 'http://localhost/projects/chitraprofile/' + response[0].profile;
     }
   };
   xhttp.open("POST", site + "images/get_profile/" + $uid, true);

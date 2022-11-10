@@ -6,7 +6,7 @@
     <div id="Head">
       <h1>Gallery</h1>
     </div>
-    <h6 style='text-align:left'><?php echo $_SESSION['user_username']?></h6>
+    <h6 style='text-align:left'><?php echo $_SESSION['user_username'] ?></h6>
 
 
     <title>
@@ -25,11 +25,11 @@
         <div class="right">r</div>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="column">
         <?php
-        $path = '../../uploads/';
+        $path = '../../chitrauploads/';
         $i = 0;
         if (isset($data)) {
           foreach ($data as $image) {

@@ -1,5 +1,5 @@
-const site = "http://localhost/Chitra-Gagan/";
-const profile = "../../profile/";
+const site = "http://localhost/projects/chitra-gagan/";
+const profile = "../../chitraprofile/";
 var currentalt;
 var currentlikes;
 // Get the modal
@@ -14,7 +14,7 @@ for (i = 0; i < images.length; i++) {
   images[i].onclick = function () {
     let no = i;
     this.info = this;
-    modal.style.display = "block";
+    modal.style.display = "flex";
     modalImg.src = this.src;
     captionText.innerHTML = this.alt;
     let requestFor = extract_info(this.alt);
@@ -37,7 +37,7 @@ span.onclick = function () {
 
 function extract_info(alt) {
   var alt_array = alt.split("X:", 3);
-  return { id: alt_array[0], image_id: alt_array[1], title: alt_array[2] };
+  return {id: alt_array[0], image_id: alt_array[1], title: alt_array[2]};
 }
 
 function fetchImageData(imageId) {
@@ -49,7 +49,7 @@ function fetchImageData(imageId) {
       setImageInfo(response);
     }
   };
-  xhttp.open("POST", site + "images/get_image_info/"+extract_info(currentalt).image_id, true);
+  xhttp.open("POST", site + "images/get_image_info/" + extract_info(currentalt).image_id, true);
   xhttp.send();
 }
 
@@ -62,7 +62,7 @@ function fetchCreatorData(userId) {
       setUserInfo(response);
     }
   };
-  xhttp.open("POST", site + "images/get_creator_info/"+extract_info(currentalt).id, false);
+  xhttp.open("POST", site + "images/get_creator_info/" + extract_info(currentalt).id, false);
   xhttp.send();
 }
 function setUserInfo(userInfo) {
@@ -95,13 +95,13 @@ likeButton.addEventListener("click", () => {
   }
   // console.log(likeButtonStatus);
 });
- 
-function setLiked(){
+
+function setLiked() {
   likeButtonStatus = 1;
   likeButton.innerHTML = "liked";
   likeButton.style.color = "red";
 }
-function unsetLiked(){
+function unsetLiked() {
   likeButtonStatus = 0;
   likeButton.innerHTML = "like";
   likeButton.style.color = "white";
@@ -126,8 +126,8 @@ function likeSub(alt) {
   request.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       if (this.responseText == "1") {
-         document.getElementById("likeCount").innerHTML = currentlikes -1;
-         currentlikes--;
+        document.getElementById("likeCount").innerHTML = currentlikes - 1;
+        currentlikes--;
       }
     }
   };
@@ -142,7 +142,7 @@ function checkIfLiked(alt) {
       if (this.responseText == "1") {
         setLiked();
       }
-      else{
+      else {
         unsetLiked();
       }
     }

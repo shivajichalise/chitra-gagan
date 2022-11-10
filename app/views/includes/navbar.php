@@ -7,16 +7,16 @@
       <?php if (isset($_SESSION['user_id'])) : ?>
         <div class="dropdown">
           <div class="nav__profile-image">
-          <img  id ="navProfile" src="" alt=<?=$uid = $_SESSION['user_id']?> />
+            <img id="navProfile" src="" alt=<?= $uid = $_SESSION['user_id'] ?> />
           </div>
           <div class="dropdown-content">
             <a href="<?php echo URLROOT . '/pages' ?>">Home</a>
-            <a href="<?php echo URLROOT . '/images/upload' ?>">upload</a>
+            <a href="<?php echo URLROOT . '/images/upload' ?>">Upload</a>
             <a href="<?php echo URLROOT . '/pages/mygallery' ?>">My content</a>
-            <a href="<?php echo URLROOT . '/pages/profile_upload'?>">Edit profile</a>
+            <a href="<?php echo URLROOT . '/pages/profile_upload' ?>">Edit profile</a>
           </div>
         </div>
-          <div class="nav__profile-options">
+        <div class="nav__profile-options">
           <a href="<?php echo URLROOT ?>/users/logout" class="options">
             <span><i class="uil uil-sign-out-alt"></i></span>
           </a>
